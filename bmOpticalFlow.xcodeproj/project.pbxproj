@@ -31,6 +31,7 @@
 		FB1C8F07150D159A009DEF79 /* ofxCvImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB1C8EF5150D159A009DEF79 /* ofxCvImage.cpp */; };
 		FB1C8F08150D159A009DEF79 /* ofxCvHaarFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB1C8EF7150D159A009DEF79 /* ofxCvHaarFinder.cpp */; };
 		FB1C8F09150D159A009DEF79 /* ofxCvShortImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB1C8EFA150D159A009DEF79 /* ofxCvShortImage.cpp */; };
+		FB45BB6E153B9C8A001E6327 /* ofxOpticalFlowBM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB45BB6D153B9C8A001E6327 /* ofxOpticalFlowBM.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,8 @@
 		FB1C8EFA150D159A009DEF79 /* ofxCvShortImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxCvShortImage.cpp; path = ../../../addons/ofxOpenCv/src/ofxCvShortImage.cpp; sourceTree = SOURCE_ROOT; };
 		FB1C8EFB150D159A009DEF79 /* ofxCvShortImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxCvShortImage.h; path = ../../../addons/ofxOpenCv/src/ofxCvShortImage.h; sourceTree = SOURCE_ROOT; };
 		FB1C8EFC150D159A009DEF79 /* ofxOpenCv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxOpenCv.h; path = ../../../addons/ofxOpenCv/src/ofxOpenCv.h; sourceTree = SOURCE_ROOT; };
+		FB45BB6C153B9C8A001E6327 /* ofxOpticalFlowBM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxOpticalFlowBM.h; sourceTree = "<group>"; };
+		FB45BB6D153B9C8A001E6327 /* ofxOpticalFlowBM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxOpticalFlowBM.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +204,8 @@
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* testApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* testApp.h */,
+				FB45BB6C153B9C8A001E6327 /* ofxOpticalFlowBM.h */,
+				FB45BB6D153B9C8A001E6327 /* ofxOpticalFlowBM.cpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -340,6 +345,7 @@
 				FB1C8F07150D159A009DEF79 /* ofxCvImage.cpp in Sources */,
 				FB1C8F08150D159A009DEF79 /* ofxCvHaarFinder.cpp in Sources */,
 				FB1C8F09150D159A009DEF79 /* ofxCvShortImage.cpp in Sources */,
+				FB45BB6E153B9C8A001E6327 /* ofxOpticalFlowBM.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,3 +9,27 @@
 
 #include "ofxOpticalFlowBM.h"
 
+
+ofxOpticalFlowBM :: ofxOpticalFlowBM() {
+
+}
+
+ofxOpticalFlowBM :: ~ofxOpticalFlowBM() {
+	destroy();
+}
+
+void ofxOpticalFlowBM :: reset() {
+  
+}
+
+void ofxOpticalFlowBM :: destroy() {
+  
+}
+
+void ofxOpticalFlowBM :: setup( int width, int height ) {
+  
+}
+
+void ofxOpticalFlowBM :: update( ofImage& source ) {
+  
+}

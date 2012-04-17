@@ -104,7 +104,7 @@
 		FB1C8EFA150D159A009DEF79 /* ofxCvShortImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxCvShortImage.cpp; path = ../../../addons/ofxOpenCv/src/ofxCvShortImage.cpp; sourceTree = SOURCE_ROOT; };
 		FB1C8EFB150D159A009DEF79 /* ofxCvShortImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxCvShortImage.h; path = ../../../addons/ofxOpenCv/src/ofxCvShortImage.h; sourceTree = SOURCE_ROOT; };
 		FB1C8EFC150D159A009DEF79 /* ofxOpenCv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxOpenCv.h; path = ../../../addons/ofxOpenCv/src/ofxOpenCv.h; sourceTree = SOURCE_ROOT; };
-		FB45BB6C153B9C8A001E6327 /* ofxOpticalFlowBM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxOpticalFlowBM.h; sourceTree = "<group>"; };
+		FB45BB6C153B9C8A001E6327 /* ofxOpticalFlowBM.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = ofxOpticalFlowBM.h; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
 		FB45BB6D153B9C8A001E6327 /* ofxOpticalFlowBM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxOpticalFlowBM.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 

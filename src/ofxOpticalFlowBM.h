@@ -21,5 +21,24 @@ class ofxOpticalFlowBM {
   
     void setup		( int width, int height );
     void update		( ofImage& source );
+    
+    ofxCvColorImage		   colrImgLrg;  // full scale color image.
+    ofxCvColorImage			 colrImgSml;  // scaled down color image.
+  
+    ofxCvGrayscaleImage  greyImgLrg;  // full scale grey image.
+    ofxCvGrayscaleImage  greyImgSml;  // scaled down grey image.
+    ofxCvGrayscaleImage  greyImgPrv;  // scaled down grey image - copy of previous frame.
+
+    IplImage*				     opFlowVelX;  // optical flow in the x direction.
+    IplImage*				     opFlowVelY;  // optical flow in the y direction.
+    
+    CvSize fullSize;
+    CvSize scalSize;
+    CvSize blockSize;
+    CvSize shiftSize;
+    CvSize maxRange;
+    CvSize flowSize;
+    
+    bool initialized;
   
 };

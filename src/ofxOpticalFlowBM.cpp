@@ -71,8 +71,8 @@ void ofxOpticalFlowBM :: setup( int width, int height ) {
 
 void ofxOpticalFlowBM :: update( unsigned char* pixels, int width, int height, int imageType ) {
   
-  //colrImgSml.setFromPixels( pixels, width, height );
-  //greyImgSml.setFromColorImage( colrImgSml );
+  colrImgSml.setFromPixels( pixels, width, height );
+  greyImgSml.setFromColorImage( colrImgSml );
   
   
   cvCalcOpticalFlowBM( greyImgPrv.getCvImage(), //Previous image (CvArr *)
@@ -85,5 +85,5 @@ void ofxOpticalFlowBM :: update( unsigned char* pixels, int width, int height, i
                        opFlowVelY    //Y Velocity (CvArr) 
   );
   
-  //greyImgPrv = greyImgSml;
+  greyImgPrv = greyImgSml;
 }

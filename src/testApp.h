@@ -3,6 +3,7 @@
 #include "ofMain.h"
 
 #include "ofxOpenCv.h"
+#include "ofxOpticalFlowBM.h"
 
 //#define _USE_LIVE_VIDEO		// uncomment this to use a live camera
 								// otherwise, we'll use a movie file
@@ -22,7 +23,9 @@ class testApp : public ofBaseApp{
 		void mouseReleased(int x, int y, int button);
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
-		void gotMessage(ofMessage msg);		
+		void gotMessage(ofMessage msg);	
+	
+    ofxOpticalFlowBM flow;
 
 };
 

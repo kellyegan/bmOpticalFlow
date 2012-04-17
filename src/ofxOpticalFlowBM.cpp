@@ -12,8 +12,10 @@
 
 ofxOpticalFlowBM :: ofxOpticalFlowBM() {
   blockSize = cvSize(5, 5);
-  shiftSize = cvSize(3, 3);
-  maxRange = cvSize(10, 10);
+  shiftSize = cvSize(1, 1);
+  maxRange = cvSize(5, 5);
+  
+  initialized = false;
 }
 
 ofxOpticalFlowBM :: ~ofxOpticalFlowBM() {
@@ -29,8 +31,6 @@ void ofxOpticalFlowBM :: reset() {
   
   cvSetZero( opFlowVelX );
   cvSetZero( opFlowVelY );
-  
-  initialized = false;
 }
 
 void ofxOpticalFlowBM :: destroy() {
@@ -47,9 +47,10 @@ void ofxOpticalFlowBM :: destroy() {
 void ofxOpticalFlowBM :: setup( int width, int height ) {
   scalSize = cvSize(width, height);
   fullSize = cvSize(width, height);
-  flowSize = cvSize(floor( (scalSize.width - blockSize.width + shiftSize.width) / shiftSize.width),
-                    floor( (scalSize.height - blockSize.height + shiftSize.height) / shiftSize.height )
+  flowSize = cvSize(floor( (scalSize.width - blockSize.width) / shiftSize.width),
+                    floor( (scalSize.height - blockSize.height) / shiftSize.height )
   );
+
   
   if( initialized )
 		destroy();
@@ -66,14 +67,12 @@ void ofxOpticalFlowBM :: setup( int width, int height ) {
 	reset();
 	
 	initialized = true;
-  
-  reset();
 }
 
-void ofxOpticalFlowBM :: update( ofImage& source ) {
+void ofxOpticalFlowBM :: update( unsigned char* pixels, int width, int height, int imageType ) {
   
-  colrImgSml.setFromPixels( source.getPixels(), source.width, source.height );
-  greyImgSml.setFromColorImage( colrImgSml );
+  //colrImgSml.setFromPixels( pixels, width, height );
+  //greyImgSml.setFromColorImage( colrImgSml );
   
   
   cvCalcOpticalFlowBM( greyImgPrv.getCvImage(), //Previous image (CvArr *)
@@ -86,5 +85,5 @@ void ofxOpticalFlowBM :: update( ofImage& source ) {
                        opFlowVelY    //Y Velocity (CvArr) 
   );
   
-  greyImgPrv = greyImgSml;
+  //greyImgPrv = greyImgSml;
 }

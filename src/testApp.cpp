@@ -13,6 +13,8 @@ void testApp::setup(){
 //--------------------------------------------------------------
 void testApp::update(){
   video.update();
+  
+  flow.update(video.getPixels(), video.width, video.height, OF_IMAGE_COLOR);
 }
 
 //--------------------------------------------------------------

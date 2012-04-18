@@ -16,11 +16,14 @@ class ofxOpticalFlowBM {
     ofxOpticalFlowBM();
     ~ofxOpticalFlowBM();
   
-    void reset		();
-    void destroy	();
+    void reset();
+    void destroy();
   
-    void setup		( int width, int height );
-    void update		( unsigned char* pixels, int width, int height, int imageType );
+    void setup( int width, int height );
+    void update( unsigned char* pixels, int width, int height, int imageType );
+  
+    ofPoint getVel(int x, int y);
+    void draw();
     
     ofxCvColorImage		   colrImgLrg;  // full scale color image.
     ofxCvColorImage			 colrImgSml;  // scaled down color image.

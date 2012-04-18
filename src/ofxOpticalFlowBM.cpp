@@ -13,7 +13,7 @@
 ofxOpticalFlowBM :: ofxOpticalFlowBM() {
   blockSize = cvSize(5, 5);
   shiftSize = cvSize(1, 1);
-  maxRange = cvSize(5, 5);
+  maxRange = cvSize(10, 10);
   
   initialized = false;
 }
@@ -44,9 +44,9 @@ void ofxOpticalFlowBM :: destroy() {
 	cvReleaseImage( &opFlowVelY );
 }
 
-void ofxOpticalFlowBM :: setup( int width, int height ) {
-  scalSize = cvSize(width, height);
-  fullSize = cvSize(width, height);
+void ofxOpticalFlowBM :: setup( int w, int h ) {
+  scalSize = cvSize(w, h);
+  fullSize = cvSize(w, h);
   flowSize = cvSize(floor( (scalSize.width - blockSize.width) / shiftSize.width),
                     floor( (scalSize.height - blockSize.height) / shiftSize.height )
   );
@@ -86,4 +86,20 @@ void ofxOpticalFlowBM :: update( unsigned char* pixels, int width, int height, i
   );
   
   greyImgPrv = greyImgSml;
+}
+
+ofPoint ofxOpticalFlowBM :: getVel( int x, int y) {
+  ofPoint p;
+  p.x = cvGetReal2D(opFlowVelX, x, y);
+  p.y = cvGetReal2D(opFlowVelY, x, y);
+  return p;
+}
+
+void ofxOpticalFlowBM :: draw() {
+  for( int y = 0; y < flowSize.height; y++) {
+    for (int x = 0; x < flowSize.width; x++) {
+      ofPoint vel = getVel(x, y);
+      ofLine(x * blockSize.width, y * blockSize.height, vel.x * blockSize.width, vel.y * blockSize.height);
+    }
+  }
 }

@@ -4,7 +4,8 @@
 void testApp::setup(){
   video.loadMovie("westminster_st.mov");
   video.play();
-  
+  video.setPaused(true);
+
   flow.setup(video.width, video.height);
   
   
@@ -24,7 +25,7 @@ void testApp::draw(){
 
 //--------------------------------------------------------------
 void testApp::keyPressed(int key){
-
+  video.nextFrame();
 }
 
 //--------------------------------------------------------------

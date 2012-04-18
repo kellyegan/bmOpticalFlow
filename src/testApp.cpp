@@ -4,7 +4,7 @@
 void testApp::setup(){
   video.loadMovie("westminster_st.mov");
   video.play();
-  video.setPosition(0.2);
+  video.setPosition(0.1);
   video.setPaused(true);
 
   flow.setup(video.width, video.height);

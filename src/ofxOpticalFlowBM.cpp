@@ -11,9 +11,9 @@
 
 
 ofxOpticalFlowBM :: ofxOpticalFlowBM() {
-  blockSize = cvSize(5, 5);
-  shiftSize = cvSize(1, 1);
-  maxRange = cvSize(10, 10);
+  blockSize = cvSize(20, 20);
+  shiftSize = cvSize(10, 10);
+  maxRange = cvSize(20, 20);
   
   initialized = false;
 }
@@ -99,7 +99,8 @@ void ofxOpticalFlowBM :: draw() {
   for( int y = 0; y < flowSize.height; y++) {
     for (int x = 0; x < flowSize.width; x++) {
       ofPoint vel = getVel(x, y);
-      ofLine(x * blockSize.width, y * blockSize.height, x * blockSize.width + vel.x, y * blockSize.height + vel.y);
+      //ofLine(x, y, x + vel.x, y + vel.y);
+      ofLine(x * shiftSize.width, y * shiftSize.height, x * shiftSize.width + vel.x, y * shiftSize.height + vel.y);
     }
   }
 }

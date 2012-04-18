@@ -4,23 +4,27 @@
 void testApp::setup(){
   video.loadMovie("westminster_st.mov");
   video.play();
+  video.setPosition(0.2);
   video.setPaused(true);
 
   flow.setup(video.width, video.height);
   
-  
+  ofNoFill();
+  ofSetColor(255);  
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
-  video.update();
-  
-  flow.update(video.getPixels(), video.width, video.height, OF_IMAGE_COLOR);
+  video.idleMovie();
+  if( video.isFrameNew() ) {
+    flow.update(video.getPixels(), video.width, video.height, OF_IMAGE_COLOR);
+  }
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
   video.draw(0, 0);
+  flow.draw();
 }
 
 //--------------------------------------------------------------

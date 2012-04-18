@@ -90,8 +90,8 @@ void ofxOpticalFlowBM :: update( unsigned char* pixels, int width, int height, i
 
 ofPoint ofxOpticalFlowBM :: getVel( int x, int y) {
   ofPoint p;
-  p.x = cvGetReal2D(opFlowVelX, x, y);
-  p.y = cvGetReal2D(opFlowVelY, x, y);
+  p.x = cvGetReal2D(opFlowVelX, y, x);   //NOTE: y then x ... annoying
+  p.y = cvGetReal2D(opFlowVelY, y, x);   //NOTE: y then x ... annoying
   return p;
 }
 
@@ -99,7 +99,7 @@ void ofxOpticalFlowBM :: draw() {
   for( int y = 0; y < flowSize.height; y++) {
     for (int x = 0; x < flowSize.width; x++) {
       ofPoint vel = getVel(x, y);
-      ofLine(x * blockSize.width, y * blockSize.height, vel.x * blockSize.width, vel.y * blockSize.height);
+      ofLine(x * blockSize.width, y * blockSize.height, x * blockSize.width + vel.x, y * blockSize.height + vel.y);
     }
   }
 }

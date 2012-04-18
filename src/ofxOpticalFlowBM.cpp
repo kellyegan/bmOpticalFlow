@@ -11,9 +11,9 @@
 
 
 ofxOpticalFlowBM :: ofxOpticalFlowBM() {
-  blockSize = cvSize(20, 20);
-  shiftSize = cvSize(10, 10);
-  maxRange = cvSize(20, 20);
+  blockSize = cvSize(20, 20);    //Size of block to compare
+  shiftSize = cvSize(10, 10);    //Increment to look for pixels
+  maxRange = cvSize(10, 10);     //Pixels around block to look... search area = (blockSize + 2 * maxRange)
   
   initialized = false;
 }

@@ -22,7 +22,8 @@ class ofxOpticalFlowBM {
     void setup( int width, int height );
     void update( unsigned char* pixels, int width, int height, int imageType );
   
-    ofPoint getVel(int x, int y);
+    ofPoint getBlockVel(int x, int y);  //x and y are blocks not pixels
+    ofPoint getVel(int x, int y);       //x and y are pixels
     void draw();
     
     ofxCvColorImage		   colrImgLrg;  // full scale color image.

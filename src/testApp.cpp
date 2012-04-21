@@ -2,14 +2,15 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
+  ofSetBackgroundAuto(false); 
+  
   video.loadMovie("westminster_st.mov");
   //video.loadMovie("fingers.mov");
-
   video.play();
   video.setPosition(0.11);
   video.setPaused(true);
 
-  flow.setup(video.width, video.height);
+  flow.setup(video.width, video.height, 5, 5, 10);
   
   ofNoFill();
   ofSetColor(255);  
@@ -39,7 +40,7 @@ void testApp::draw(){
     }
   }
   ofSetColor(255, 255, 255);
-  flow.draw(0, 0);
+  //flow.draw(0, 0);
 }
 
 //--------------------------------------------------------------

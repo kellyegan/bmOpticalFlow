@@ -9,7 +9,6 @@
 
 #include "ofxOpticalFlowBM.h"
 
-
 ofxOpticalFlowBM :: ofxOpticalFlowBM() {
   initialized = false;
 }
@@ -39,8 +38,6 @@ void ofxOpticalFlowBM :: destroy() {
 	cvReleaseImage( &opFlowVelX );
 	cvReleaseImage( &opFlowVelY );
 }
-
-
 
 void ofxOpticalFlowBM :: setup( int w, int h, int blkSize, int shfSize, int maxRng ) {
   blockSize = cvSize(blkSize, blkSize);  //Size of block to compare
@@ -104,6 +101,12 @@ ofPoint ofxOpticalFlowBM :: getBlockVel( int x, int y ) {
 //Get the velocity at a specific pixel
 ofPoint ofxOpticalFlowBM :: getVel( int x, int y) {
   return getBlockVel( floor(x / shiftSize.width), floor(y / shiftSize.height) );
+}
+
+ofPoint ofxOpticalFlowBM :: getVelTween(int x, int y) {
+  ofPoint p1, p2;
+  
+  return p;
 }
 
 void ofxOpticalFlowBM :: draw(int xOrigin, int yOrigin) {

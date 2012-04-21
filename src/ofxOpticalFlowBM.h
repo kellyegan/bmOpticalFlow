@@ -19,7 +19,7 @@ class ofxOpticalFlowBM {
     void reset();
     void destroy();
   
-    void setup( int width, int height );
+    void setup( int w, int h, int blkSize = 20, int shfSize = 10 , int maxRng = 20 );
     void update( unsigned char* pixels, int width, int height, int imageType );
   
     ofPoint getBlockVel(int x, int y);  //x and y are blocks not pixels

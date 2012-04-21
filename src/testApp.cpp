@@ -20,12 +20,25 @@ void testApp::update(){
   video.idleMovie();
   if( video.isFrameNew() ) {
     flow.update(video.getPixels(), video.width, video.height, OF_IMAGE_COLOR);
+    videoPixels = video.getPixels();
   }
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
-  video.draw(0, 0);
+  ofPoint currentVel;
+  
+  // video.draw(0, 0);
+  for(int y = 0; y < video.height; y++) {
+    for (int x = 0; x < video.width; x++) {
+      currentVel = flow.getVel(x, y);
+      ofSetColor(videoPixels[((video.width * y) + x) * 3], 
+                 videoPixels[((video.width * y) + x) * 3 + 1], 
+                 videoPixels[((video.width * y) + x) * 3 + 2]);
+      ofLine(x, y, x + currentVel.x, y + currentVel.y);
+    }
+  }
+  ofSetColor(255, 255, 255);
   flow.draw(0, 0);
 }
 

@@ -11,10 +11,6 @@
 
 
 ofxOpticalFlowBM :: ofxOpticalFlowBM() {
-  blockSize = cvSize(20, 20);    //Size of block to compare
-  shiftSize = cvSize(10, 10);    //Increment to look for pixels
-  maxRange = cvSize(20, 20);     //Pixels around block to look... search area = (blockSize + 2 * maxRange)
-  
   initialized = false;
 }
 
@@ -44,7 +40,13 @@ void ofxOpticalFlowBM :: destroy() {
 	cvReleaseImage( &opFlowVelY );
 }
 
-void ofxOpticalFlowBM :: setup( int w, int h ) {
+
+
+void ofxOpticalFlowBM :: setup( int w, int h, int blkSize, int shfSize, int maxRng ) {
+  blockSize = cvSize(blkSize, blkSize);  //Size of block to compare
+  shiftSize = cvSize(shfSize, shfSize);  //Increment to look for pixels
+  maxRange = cvSize(maxRng, maxRng);     //Pixels around block to look... search area = (blockSize + 2 * maxRange)
+  
   scalSize = cvSize(w, h);
   fullSize = cvSize(w, h);
   flowSize = cvSize(floor( (scalSize.width - blockSize.width) / shiftSize.width),
@@ -92,13 +94,16 @@ void ofxOpticalFlowBM :: update( unsigned char* pixels, int w, int h, int imageT
 //Get the velocity of each block given the x and y of that block 
 ofPoint ofxOpticalFlowBM :: getBlockVel( int x, int y ) {
   ofPoint p;
-  p.x = cvGetReal2D(opFlowVelX, y, x);   //NOTE: y then x ... annoying
-  p.y = cvGetReal2D(opFlowVelY, y, x);   //NOTE: y then x ... annoying
+  if( x < flowSize.width && y < flowSize.height ) {
+    p.x = cvGetReal2D(opFlowVelX, y, x);   //NOTE: y then x ... annoying
+    p.y = cvGetReal2D(opFlowVelY, y, x);   //NOTE: y then x ... annoying
+  }
   return p;
 }
 
+//Get the velocity at a specific pixel
 ofPoint ofxOpticalFlowBM :: getVel( int x, int y) {
-  return getBlockVel( x % shiftSize.width, y % shiftSize.height );
+  return getBlockVel( floor(x / shiftSize.width), floor(y / shiftSize.height) );
 }
 
 void ofxOpticalFlowBM :: draw(int xOrigin, int yOrigin) {

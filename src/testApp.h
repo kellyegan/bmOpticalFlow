@@ -26,7 +26,9 @@ class testApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);	
 	
     ofxOpticalFlowBM flow;
-  
+    
+    unsigned char * videoPixels;
+      
     ofVideoPlayer video;
 
 };

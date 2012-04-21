@@ -101,15 +101,15 @@ ofPoint ofxOpticalFlowBM :: getVel( int x, int y) {
   return getBlockVel( x % shiftSize.width, y % shiftSize.height );
 }
 
-void ofxOpticalFlowBM :: draw() {
+void ofxOpticalFlowBM :: draw(int xOrigin, int yOrigin) {
   for( int y = 0; y < flowSize.height; y++) {
     for (int x = 0; x < flowSize.width; x++) {
       ofPoint vel = getBlockVel(x, y);
       //ofLine(x, y, x + vel.x, y + vel.y);
-      ofLine(x * shiftSize.width + shiftSize.width, 
-             y * shiftSize.height + shiftSize.height, 
-             x * shiftSize.width + vel.x + shiftSize.width, 
-             y * shiftSize.height + vel.y + shiftSize.height);
+      ofLine(xOrigin + x * shiftSize.width + shiftSize.width, 
+             yOrigin + y * shiftSize.height + shiftSize.height, 
+             xOrigin + x * shiftSize.width + vel.x + shiftSize.width, 
+             yOrigin + y * shiftSize.height + vel.y + shiftSize.height);
     }
   }
 }

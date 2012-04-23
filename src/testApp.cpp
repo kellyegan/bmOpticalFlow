@@ -2,15 +2,20 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
-  ofSetBackgroundAuto(false); 
+  //ofSetBackgroundAuto(false); 
+  ofEnableAlphaBlending();
+  ofBackground(0, 0, 0, 10);
   
   video.loadMovie("westminster_st.mov");
   //video.loadMovie("fingers.mov");
   video.play();
   video.setPosition(0.11);
-  video.setPaused(true);
+  //video.setPaused(true);
 
-  flow.setup(video.width, video.height, 5, 5, 10);
+  flow.setup(video.width, video.height, 25, 25, 10);
+  
+  currPixels = video.getPixels();   
+  flow.update(currPixels, video.width, video.height, OF_IMAGE_COLOR);
   
   ofNoFill();
   ofSetColor(255);  
@@ -20,8 +25,10 @@ void testApp::setup(){
 void testApp::update(){
   video.idleMovie();
   if( video.isFrameNew() ) {
-    flow.update(video.getPixels(), video.width, video.height, OF_IMAGE_COLOR);
-    videoPixels = video.getPixels();
+    prevPixels = currPixels;
+    currPixels = video.getPixels();   
+    flow.update(currPixels, video.width, video.height, OF_IMAGE_COLOR);
+ 
   }
 }
 
@@ -29,13 +36,17 @@ void testApp::update(){
 void testApp::draw(){
   ofPoint currentVel;
   
+  if (ofGetFrameNum() <= 1) {
+    video.draw(0,0);
+  }
+  
   // video.draw(0, 0);
   for(int y = 0; y < video.height; y++) {
     for (int x = 0; x < video.width; x++) {
       currentVel = flow.getVel(x, y);
-      ofSetColor(videoPixels[((video.width * y) + x) * 3], 
-                 videoPixels[((video.width * y) + x) * 3 + 1], 
-                 videoPixels[((video.width * y) + x) * 3 + 2]);
+      ofSetColor(prevPixels[((video.width * y) + x) * 3], 
+                 prevPixels[((video.width * y) + x) * 3 + 1], 
+                 prevPixels[((video.width * y) + x) * 3 + 2]);
       ofLine(x, y, x + currentVel.x, y + currentVel.y);
     }
   }
@@ -50,7 +61,7 @@ void testApp::keyPressed(int key){
 
 //--------------------------------------------------------------
 void testApp::keyReleased(int key){
-
+  
 }
 
 //--------------------------------------------------------------

@@ -27,7 +27,8 @@ class testApp : public ofBaseApp{
 	
     ofxOpticalFlowBM flow;
     
-    unsigned char * videoPixels;
+    unsigned char * currPixels;
+    unsigned char * prevPixels;
       
     ofVideoPlayer video;
 

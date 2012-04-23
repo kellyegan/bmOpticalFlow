@@ -22,10 +22,10 @@ class ofxOpticalFlowBM {
     void setup( int w, int h, int blkSize = 20, int shfSize = 10 , int maxRng = 20 );
     void update( unsigned char* pixels, int width, int height, int imageType );
   
-    ofPoint getBlockVel(int x, int y);  //x and y are blocks not pixels
-    ofPoint getVel(int x, int y);       //x and y are pixels
-    ofPoint getVelTween(int x, int y);  //Get velocity between blocks
-    void draw(int xOrigin, int yOrigin);
+    ofPoint getBlockVel(int x, int y);    //x and y are blocks not pixels
+    ofPoint getVel(int x, int y);         //x and y are pixels
+    ofPoint getVelTween(int x, int y);    //Get velocity between blocks
+    void draw(int xOrigin, int yOrigin);  //
     
     ofxCvColorImage		   colrImgLrg;  // full scale color image.
     ofxCvColorImage			 colrImgSml;  // scaled down color image.

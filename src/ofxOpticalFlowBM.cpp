@@ -106,7 +106,7 @@ ofPoint ofxOpticalFlowBM :: getVel( int x, int y) {
 ofPoint ofxOpticalFlowBM :: getVelTween(int x, int y) {
   ofPoint p1, p2;
   
-  return p;
+  return p1;
 }
 
 void ofxOpticalFlowBM :: draw(int xOrigin, int yOrigin) {

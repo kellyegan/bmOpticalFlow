@@ -32,6 +32,7 @@
 		FB1C8F08150D159A009DEF79 /* ofxCvHaarFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB1C8EF7150D159A009DEF79 /* ofxCvHaarFinder.cpp */; };
 		FB1C8F09150D159A009DEF79 /* ofxCvShortImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB1C8EFA150D159A009DEF79 /* ofxCvShortImage.cpp */; };
 		FB45BB6E153B9C8A001E6327 /* ofxOpticalFlowBM.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB45BB6D153B9C8A001E6327 /* ofxOpticalFlowBM.cpp */; };
+		FB45BFCB1544D58C001E6327 /* ofxQtVideoSaver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB45BFC91544D58C001E6327 /* ofxQtVideoSaver.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,8 @@
 		FB1C8EFC150D159A009DEF79 /* ofxOpenCv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxOpenCv.h; path = ../../../addons/ofxOpenCv/src/ofxOpenCv.h; sourceTree = SOURCE_ROOT; };
 		FB45BB6C153B9C8A001E6327 /* ofxOpticalFlowBM.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; name = ofxOpticalFlowBM.h; path = src/ofxOpticalFlowBM.h; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; };
 		FB45BB6D153B9C8A001E6327 /* ofxOpticalFlowBM.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxOpticalFlowBM.cpp; path = src/ofxOpticalFlowBM.cpp; sourceTree = "<group>"; };
+		FB45BFC91544D58C001E6327 /* ofxQtVideoSaver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ofxQtVideoSaver.cpp; path = ../../../addons/ofxQTVideoSaver/src/ofxQtVideoSaver.cpp; sourceTree = SOURCE_ROOT; };
+		FB45BFCA1544D58C001E6327 /* ofxQtVideoSaver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofxQtVideoSaver.h; path = ../../../addons/ofxQTVideoSaver/src/ofxQtVideoSaver.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +139,7 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				FB45BFCC1544D591001E6327 /* ofxQtSaver */,
 				FB45BC29153CFCC0001E6327 /* ofxOpticalFlowBM */,
 				FB1C8EFE150D159A009DEF79 /* ofxOpenCv */,
 			);
@@ -260,6 +264,15 @@
 			name = ofxOpticalFlowBM;
 			sourceTree = "<group>";
 		};
+		FB45BFCC1544D591001E6327 /* ofxQtSaver */ = {
+			isa = PBXGroup;
+			children = (
+				FB45BFC91544D58C001E6327 /* ofxQtVideoSaver.cpp */,
+				FB45BFCA1544D58C001E6327 /* ofxQtVideoSaver.h */,
+			);
+			name = ofxQtSaver;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -354,6 +367,7 @@
 				FB1C8F08150D159A009DEF79 /* ofxCvHaarFinder.cpp in Sources */,
 				FB1C8F09150D159A009DEF79 /* ofxCvShortImage.cpp in Sources */,
 				FB45BB6E153B9C8A001E6327 /* ofxOpticalFlowBM.cpp in Sources */,
+				FB45BFCB1544D58C001E6327 /* ofxQtVideoSaver.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

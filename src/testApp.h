@@ -4,6 +4,8 @@
 
 #include "ofxOpenCv.h"
 #include "ofxOpticalFlowBM.h"
+#include "ofxQtVideoSaver.h"
+
 
 //#define _USE_LIVE_VIDEO		// uncomment this to use a live camera
 								// otherwise, we'll use a movie file
@@ -11,13 +13,14 @@
 class testApp : public ofBaseApp{
 
 	public:
+    ~testApp();
 		void setup();
 		void update();
-		void draw();
-		
+		void draw();		
 		void keyPressed(int key);
 		void keyReleased(int key);
 		void mouseMoved(int x, int y );
+  
 		void mouseDragged(int x, int y, int button);
 		void mousePressed(int x, int y, int button);
 		void mouseReleased(int x, int y, int button);
@@ -26,6 +29,7 @@ class testApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);	
 	
     ofxOpticalFlowBM flow;
+    ofxQtVideoSaver videoSaver;
     
     unsigned char * currPixels;
     unsigned char * prevPixels;

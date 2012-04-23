@@ -1,10 +1,14 @@
 #include "testApp.h"
 
+testApp::~testApp() {
+  
+}
+
 //--------------------------------------------------------------
 void testApp::setup(){
-  //ofSetBackgroundAuto(false); 
-  ofEnableAlphaBlending();
-  ofBackground(0, 0, 0, 10);
+  ofSetBackgroundAuto(false); 
+  //ofEnableAlphaBlending();
+  //ofBackground(0, 0, 0, 10);
   
   video.loadMovie("westminster_st.mov");
   //video.loadMovie("fingers.mov");
@@ -12,7 +16,7 @@ void testApp::setup(){
   video.setPosition(0.11);
   //video.setPaused(true);
 
-  flow.setup(video.width, video.height, 25, 25, 10);
+  flow.setup(video.width, video.height, 5, 5, 10);
   
   currPixels = video.getPixels();   
   flow.update(currPixels, video.width, video.height, OF_IMAGE_COLOR);

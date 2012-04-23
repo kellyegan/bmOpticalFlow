@@ -14,6 +14,9 @@ class testApp : public ofBaseApp{
 
 	public:
     ~testApp();
+    
+    void createFileName();
+  
 		void setup();
 		void update();
 		void draw();		
@@ -30,6 +33,10 @@ class testApp : public ofBaseApp{
 	
     ofxOpticalFlowBM flow;
     ofxQtVideoSaver videoSaver;
+    
+    string filename;
+    ofImage screen;
+    float frameCount;
     
     unsigned char * currPixels;
     unsigned char * prevPixels;

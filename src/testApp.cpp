@@ -26,13 +26,15 @@ void testApp::createFileName(void)
 void testApp::setup(){
   ofSetBackgroundAuto(false); 
   //ofEnableAlphaBlending();
-  //ofBackground(0, 0, 0, 10);
+  ofBackground(0, 0, 0);
+  
+  screenReady = false;
   
   video.loadMovie("westminster_st.mov");
   //video.loadMovie("fingers.mov");
   video.play();
   video.setPosition(0.11);
-  //video.setPaused(true);
+  video.setPaused(true);
 
   flow.setup(video.width, video.height, 5, 5, 15);
   
@@ -52,23 +54,25 @@ void testApp::setup(){
 //--------------------------------------------------------------
 void testApp::update(){
   video.idleMovie();
-  if( video.isFrameNew() ) {
-    
+  
+  if( video.isFrameNew() ) {  
     prevPixels = currPixels;
     currPixels = video.getPixels();   
     flow.update(currPixels, video.width, video.height, OF_IMAGE_COLOR);
-    
+  }
+  if( screenReady ) {
     screen.grabScreen(0, 0,ofGetWidth(), ofGetHeight());
     videoSaver.addFrame(screen.getPixels(), video.getPosition());
     frameCount++;
- 
+    video.nextFrame();
+    screenReady = false;
   }
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
   ofPoint currentVel;
-  
+  if( !screenReady ) {
   // video.draw(0, 0);
   for(int y = 0; y < video.height; y++) {
     for (int x = 0; x < video.width; x++) {
@@ -82,6 +86,8 @@ void testApp::draw(){
       ofDisableAlphaBlending();
     }
   }
+    screenReady = true;
+  } 
   ofSetColor(255, 255, 255);
   //flow.draw(0, 0);
 }

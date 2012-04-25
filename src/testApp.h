@@ -37,6 +37,8 @@ class testApp : public ofBaseApp{
     string filename;
     ofImage screen;
     float frameCount;
+   
+    bool screenReady;
     
     unsigned char * currPixels;
     unsigned char * prevPixels;
